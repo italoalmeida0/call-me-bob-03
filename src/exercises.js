@@ -7,6 +7,7 @@
  *   title     story title
  *   tagline   one-line teaser for the card
  *   icon      material-symbols icon name
+ *   topics    study-topic chips shown under the title
  *   funcName  the function the player must implement
  *   stub      starter code shown in the editor
  *   story     array of paragraphs (the subject, Bob-flavored)
@@ -39,6 +40,7 @@ export const EXERCISES = [
     tagline: "Bob's seed drawer is chaos. Sort the packets his very own way.",
     icon: "eco",
     funcName: "seed_packet_sort",
+    topics: ["Custom Sort", "Sorting Algorithms"],
     stub: "def seed_packet_sort(labels: list[str]) -> list[str]:\n    pass\n",
     story: [
       "Bob's seed drawer is a mess of little paper packets, each labeled with the name of a plant. Spring is coming and he wants them lined up on the shelf in his very specific Bob-order.",
@@ -95,6 +97,7 @@ export const EXERCISES = [
     tagline: "Which letters show up in BOTH of Bob's scribbled notes?",
     icon: "compare",
     funcName: "shared_letters",
+    topics: ["String Intersection", "Sets"],
     stub: "def shared_letters(note_a: str, note_b: str) -> str:\n    pass\n",
     story: [
       "Bob writes shopping notes on scraps of paper and always loses one of them. This week he found two notes in different coat pockets and wants to know which letters appear in BOTH — maybe that will jog his memory about what he meant to buy.",
@@ -140,6 +143,7 @@ export const EXERCISES = [
     tagline: "Some labels read the same from both sides of the shelf.",
     icon: "record-voice-over",
     funcName: "echo_chant",
+    topics: ["Palindrome", "Two Pointers"],
     stub: "def echo_chant(label: str) -> bool:\n    pass\n",
     story: [
       "Bob swears his pantry is haunted: some of the jar labels he wrote sound EXACTLY the same whether you read them from the left side of the shelf or the right. He calls those labels 'echoes'.",
@@ -186,6 +190,7 @@ export const EXERCISES = [
     tagline: "Bob bought a mirror. Now every shelf row looks backwards.",
     icon: "flip",
     funcName: "mirror_shelves",
+    topics: ["Array Reversal", "List Comprehension"],
     stub: "def mirror_shelves(shelves: list[list[int]]) -> list[list[int]]:\n    pass\n",
     story: [
       "Bob hung a big mirror at the end of his pantry. Every shelf — a neat row of numbered jars — now appears perfectly backwards in the reflection, and Bob finds it oddly beautiful.",
@@ -228,6 +233,7 @@ export const EXERCISES = [
     tagline: "Is Grandma's secret word carved along the fence boards?",
     icon: "visibility-off",
     funcName: "hidden_word",
+    topics: ["Subsequence Check", "Two Pointers"],
     stub: "def hidden_word(secret: str, boards: str) -> bool:\n    pass\n",
     story: [
       "Bob's grandmother hid a secret word along the garden fence: each board has one letter carved into it, and if you read the boards left to right, her word appears — in order, but not necessarily on neighboring boards. Other letters are just decoys.",
@@ -276,6 +282,7 @@ export const EXERCISES = [
     tagline: "The owls stamp mail in weird bases. Translate for Bob.",
     icon: "numbers",
     funcName: "owl_post_code",
+    topics: ["Base Conversion", "Math"],
     stub: "def owl_post_code(code: str, from_base: int, to_base: int) -> str:\n    pass\n",
     story: [
       "The village owls deliver Bob's mail, but they stamp every parcel with a number in whatever base that particular owl prefers — anywhere from base 2 to base 36. Values above 9 are written with the letters A to Z (A is 10, Z is 35).",
@@ -330,6 +337,7 @@ export const EXERCISES = [
     tagline: "Count the little steps going up in Bob's combination lock.",
     icon: "stairs",
     funcName: "staircase_digits",
+    topics: ["String Scanning", "Counting"],
     stub: "def staircase_digits(lock: str) -> int:\n    pass\n",
     story: [
       "Bob's shed lock is an old dial with a long scratched code. Bob, being Bob, counts 'steps' in it: a step is two ADJACENT digits where the second is exactly one greater than the first — like climbing a tiny staircase. Note that 9 followed by 0 is NOT a step; staircases don't wrap around.",
@@ -382,6 +390,7 @@ export const EXERCISES = [
     tagline: "Two jars of alphabet soup — same letters, different order?",
     icon: "soup-kitchen",
     funcName: "letter_stew",
+    topics: ["Anagram", "Frequency Counting"],
     stub: "def letter_stew(jar_a: str, jar_b: str) -> bool:\n    pass\n",
     story: [
       "At the market, Bob sells jars of his grandma's alphabet soup. A food critic claims two jars are 'the same stew' if they contain exactly the same letters in exactly the same quantities — order doesn't matter, and nobody cares about capitals or the spaces between noodle letters.",
@@ -428,6 +437,7 @@ export const EXERCISES = [
     tagline: "Two sorted crates of apples, one master crate.",
     icon: "merge",
     funcName: "merge_harvest_rows",
+    topics: ["Merge Sorted Arrays", "Two Pointers"],
     stub: "def merge_harvest_rows(crate_a: list[int], crate_b: list[int]) -> list[int]:\n    pass\n",
     story: [
       "Bob sells apples by weight, and each crate is already arranged from the lightest apple to the heaviest. At the market stall he needs ONE master crate: two customers' crates merged together, still perfectly ordered.",
@@ -468,6 +478,7 @@ export const EXERCISES = [
     tagline: "Did the magpie just rearrange Bob's tiles, or steal some?",
     icon: "grid-on",
     funcName: "scrabble_rack",
+    topics: ["Permutation Check", "Frequency Counting"],
     stub: "def scrabble_rack(before: str, after: str) -> bool:\n    pass\n",
     story: [
       "Bob plays scrabble on the porch, and a cheeky magpie keeps hopping onto the table. Afterwards Bob wonders: did the bird merely shuffle his tile rack around, or did it actually steal a tile and leave a fake?",
@@ -517,6 +528,7 @@ export const EXERCISES = [
     tagline: "Bob paints letters on the fence in alternating 'cases'.",
     icon: "format-paint",
     funcName: "zigzag_paint",
+    topics: ["String Manipulation", "Case Handling"],
     stub: "def zigzag_paint(phrase: str) -> str:\n    pass\n",
     story: [
       "Bob is painting a welcome phrase on the fence in his signature zigzag style: the first letter lowercase, the second UPPERCASE, the third lowercase, and so on. Digits, punctuation and other decorations stay as they are and do NOT advance the zigzag rhythm.",
@@ -559,6 +571,7 @@ export const EXERCISES = [
     tagline: "A gust spun Bob's weather vane k clicks to the right.",
     icon: "rotate-right",
     funcName: "weather_vane_spin",
+    topics: ["Array Rotation", "Modulo Arithmetic"],
     stub: "def weather_vane_spin(markers: list[int], k: int) -> list[int]:\n    pass\n",
     story: [
       "Bob's weather vane is a ring painted with numbered markers. Last night's gust spun it k clicks to the right: the last k markers swung around to the front, keeping their order.",
@@ -603,6 +616,7 @@ export const EXERCISES = [
     tagline: "Every box Bob opens must close in the right order.",
     icon: "inventory",
     funcName: "nesting_boxes",
+    topics: ["Valid Parentheses", "Stack"],
     stub: "def nesting_boxes(tags: str) -> bool:\n    pass\n",
     story: [
       "Bob wraps presents in nesting boxes of three shapes: round (), square [] and curly {}. His label printer tags each gift with a string of marks — one per box rim, in the order the rims meet. A gift only stacks properly if every opening mark is matched by a closing mark of the same shape, in the correct nesting order. Any stray letters on the tag are just the gift shop's stamp and can be ignored.",
@@ -653,6 +667,7 @@ export const EXERCISES = [
     tagline: "Bob encodes the scarecrow's orders with an old letter shift.",
     icon: "hearing",
     funcName: "scarecrow_whisper",
+    topics: ["Caesar Cipher", "ASCII Math"],
     stub: "def scarecrow_whisper(order: str, shift: int) -> str:\n    pass\n",
     story: [
       "Bob is convinced his scarecrow understands instructions — as long as they're whispered in code. His code is the oldest one around: every letter slides forward in the alphabet by a fixed shift, wrapping from Z back to A. A negative shift slides letters backwards instead. Digits, spaces and punctuation stay untouched — the scarecrow only cares about letters.",
