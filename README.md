@@ -10,6 +10,8 @@ your code right in your browser and shows a full test trace.
 
 **🌐 Live site:** https://italoalmeida0.github.io/call-me-bob-03/
 
+**🧭 Bob's other to-do lists:** ➡️ [call-me-bob 04](https://github.com/italoalmeida0/call-me-bob-04)
+
 ## The chores
 
 Every chore card shows **topic chips** — the classic computer-science
