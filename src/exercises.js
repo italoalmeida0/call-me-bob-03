@@ -44,7 +44,7 @@ export const EXERCISES = [
     stub: "def seed_packet_sort(labels: list[str]) -> list[str]:\n    pass\n",
     story: [
       "Bob's seed drawer is a mess of little paper packets, each labeled with the name of a plant. Spring is coming and he wants them lined up on the shelf in his very specific Bob-order.",
-      "Bob's order goes like this: shortest labels first, because short plants go on the sunny edge. If two labels have the same length, alphabetical order wins — but Bob refuses to care about capital letters when comparing. If they're still tied, the label with FEWER vowels goes first (Bob finds vowels showy). Perfectly identical packets keep the order they had in the drawer.",
+      "Bob's order goes like this: shortest labels first, because short plants go on the sunny edge. If two labels have the same length, alphabetical order wins — but Bob refuses to care about capital letters when comparing. If they're still tied, the label with FEWER vowels goes first (Bob finds vowels showy). And if two packets are STILL tied after all that, Bob simply keeps them in the order they had in the drawer — no funny business.",
       "One more thing: Bob's robot helper is watching, and it will REFUSE to grade any solution that uses Python's built-in sorted() or the list.sort() method. Bob says sorting is a life skill — do it by hand.",
     ],
     signature: "def seed_packet_sort(labels: list[str]) -> list[str]:",
@@ -52,7 +52,7 @@ export const EXERCISES = [
       "Sort by label length, shortest first",
       "Same length: alphabetical order, comparing letters case-insensitively",
       "Still tied: fewer vowels first (ignore non-letters when counting vowels)",
-      "Truly equal labels keep their original relative order",
+      "Still tied after ALL of that: keep the original relative order (stable sort)",
       "Handle empty labels and empty lists",
       "FORBIDDEN: using sorted() or list.sort() — the robot checks and rejects them",
     ],
@@ -64,8 +64,13 @@ export const EXERCISES = [
       },
       {
         input: 'seed_packet_sort(["aaa", "bbb", "AAA", "BBB"])',
-        output: "['AAA', 'aaa', 'BBB', 'bbb']",
-        note: "case-insensitive compare, then ASCII settles the tie",
+        output: "['aaa', 'AAA', 'bbb', 'BBB']",
+        note: "case-insensitive tie, same vowels — the drawer order is kept",
+      },
+      {
+        input: 'seed_packet_sort(["Bb", "bb", "BB"])',
+        output: "['Bb', 'bb', 'BB']",
+        note: "Titlecase, lowercase, UPPERCASE: all tied, so original order wins",
       },
       {
         input: 'seed_packet_sort(["hello", "world", "hi", "test"])',
@@ -76,7 +81,8 @@ export const EXERCISES = [
     ],
     tests: [
       { call: 'seed_packet_sort(["apple", "cat", "banana", "dog", "elephant"])', args: "(['apple', 'cat', 'banana', 'dog', 'elephant'],)", expected: "['cat', 'dog', 'apple', 'banana', 'elephant']" },
-      { call: 'seed_packet_sort(["aaa", "bbb", "AAA", "BBB"])', args: "(['aaa', 'bbb', 'AAA', 'BBB'],)", expected: "['AAA', 'aaa', 'BBB', 'bbb']" },
+      { call: 'seed_packet_sort(["aaa", "bbb", "AAA", "BBB"])', args: "(['aaa', 'bbb', 'AAA', 'BBB'],)", expected: "['aaa', 'AAA', 'bbb', 'BBB']" },
+      { call: 'seed_packet_sort(["Bb", "bb", "BB"])', args: "(['Bb', 'bb', 'BB'],)", expected: "['Bb', 'bb', 'BB']" },
       { call: 'seed_packet_sort(["hello", "world", "hi", "test"])', args: "(['hello', 'world', 'hi', 'test'],)", expected: "['hi', 'test', 'hello', 'world']" },
       { call: "seed_packet_sort([])", args: "([],)", expected: "[]" },
       { call: 'seed_packet_sort([""])', args: "([''],)", expected: "['']" },
@@ -84,7 +90,7 @@ export const EXERCISES = [
       { call: 'seed_packet_sort(["bb", "Aa"])', args: "(['bb', 'Aa'],)", expected: "['Aa', 'bb']" },
       { call: 'seed_packet_sort(["Banana", "banana"])', args: "(['Banana', 'banana'],)", expected: "['Banana', 'banana']" },
       { call: 'seed_packet_sort(["c", "bb", "aaa"])', args: "(['c', 'bb', 'aaa'],)", expected: "['c', 'bb', 'aaa']" },
-      { call: 'seed_packet_sort(["dog", "cat", "Dog"])', args: "(['dog', 'cat', 'Dog'],)", expected: "['cat', 'Dog', 'dog']" },
+      { call: 'seed_packet_sort(["dog", "cat", "Dog"])', args: "(['dog', 'cat', 'Dog'],)", expected: "['cat', 'dog', 'Dog']" },
       { call: 'seed_packet_sort(["ab", "a b"])', args: "(['ab', 'a b'],)", expected: "['ab', 'a b']" },
       { call: 'seed_packet_sort(["B", "a"])', args: "(['B', 'a'],)", expected: "['a', 'B']" },
     ],
@@ -92,7 +98,7 @@ export const EXERCISES = [
   },
   {
     id: "shared-letters",
-    tier: 1,
+    tier: 3,
     title: "Two Shopping Notes",
     tagline: "Which letters show up in BOTH of Bob's scribbled notes?",
     icon: "compare",
@@ -611,7 +617,7 @@ export const EXERCISES = [
   // -----------------------------------------------------------------------
   {
     id: "nesting-boxes",
-    tier: 6,
+    tier: 1,
     title: "The Nesting Gift Boxes",
     tagline: "Every box Bob opens must close in the right order.",
     icon: "inventory",
