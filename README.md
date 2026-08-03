@@ -21,9 +21,10 @@ after) solving it.
 | Day | Chore | What Bob needs | Topics to study |
 |-----|-------|----------------|-----------------|
 | 1 | The Seed Packet Sort | Sort labels by length, then case-insensitive alphabetically, then by vowel count — **without** `sorted()` or `.sort()` | Custom Sort, Sorting Algorithms |
-| 1 | Two Shopping Notes | Characters present in both strings, no repeats, in first-string order | String Intersection, Sets |
+| 1 | The Nesting Gift Boxes | Validate nested `()`, `[]` and `{}` brackets | Valid Parentheses, Stack |
 | 2 | The Pantry Echo | Palindrome check ignoring spaces and letter case | Palindrome, Two Pointers |
 | 2 | Mirror, Mirror, on the Shelf | Reverse every row of a 2D list without mutating the original | Array Reversal, List Comprehension |
+| 3 | Two Shopping Notes | Characters present in both strings, no repeats, in first-string order | String Intersection, Sets |
 | 3 | The Hidden Word in the Fence | Check if a word is a subsequence of another string | Subsequence Check, Two Pointers |
 | 3 | The Owl Post Code | Convert a number between bases 2–36, with validation | Base Conversion, Math |
 | 3 | Staircase Digits | Count adjacent digit pairs where the second is the first + 1 | String Scanning, Counting |
@@ -32,7 +33,6 @@ after) solving it.
 | 4 | The Scrabble Rack Swap | Check if one string is a permutation of the other | Permutation Check, Frequency Counting |
 | 5 | Zigzag Fence Painting | Alternate letter case; spaces restart the rhythm | String Manipulation, Case Handling |
 | 5 | The Weather Vane Spin | Rotate a list right by k positions (k may exceed the length) | Array Rotation, Modulo Arithmetic |
-| 6 | The Nesting Gift Boxes | Validate nested `()`, `[]` and `{}` brackets | Valid Parentheses, Stack |
 | 6 | Whispers for the Scarecrow | Caesar cipher with wrap-around and negative shifts | Caesar Cipher, ASCII Math |
 
 ## How it works
@@ -43,6 +43,11 @@ after) solving it.
   (WebAssembly CPython), nothing ever leaves your machine
 - 🔍 **Full test trace** — every test case shows the call, expected value, your
   result and OK/KO, just like a terminal grader
+- ▶️ **Run button** — run your script anytime and see `print()` output in the
+  robot log, with a 15s infinite-loop guard
+- 🚫 **Enforced rules** — chores that ban a function (like `sorted()` in The
+  Seed Packet Sort) check your code statically AND at runtime, no sneaky
+  workarounds
 - ⭐ **Progress tracking** — solved chores and your code are saved in
   `localStorage`
 - 📱 **Responsive** — works on desktop and mobile
