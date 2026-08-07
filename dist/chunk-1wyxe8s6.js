@@ -25191,7 +25191,8 @@ var EXERCISES = [
 `,
     story: [
       "Bob sells apples by weight, and each crate is already arranged from the lightest apple to the heaviest. At the market stall he needs ONE master crate: two customers' crates merged together, still perfectly ordered.",
-      "Given the two crates (each sorted in ascending order), return a single merged list in ascending order. Both crates may hold apples of identical weight — keep them all."
+      "Given the two crates (each sorted in ascending order), return a single merged list in ascending order. Both crates may hold apples of identical weight — keep them all.",
+      "One more thing: Bob's robot helper is watching, and it will REFUSE to grade any solution that uses sorted(), list.sort(), or heapq.merge(). Bob says the whole point is to merge already-sorted crates by hand — re-sorting everything is cheating."
     ],
     signature: "def merge_harvest_rows(crate_a: list[int], crate_b: list[int]) -> list[int]:",
     rules: [
@@ -25199,8 +25200,10 @@ var EXERCISES = [
       "Return one merged list, also in ascending order",
       "Keep all duplicates",
       "Handle empty crates",
-      "The inputs must not be modified"
+      "The inputs must not be modified",
+      "FORBIDDEN: using sorted(), list.sort(), or heapq.merge() — the robot checks and rejects them"
     ],
+    banned: { names: ["sorted", "merge"], attrs: ["sort", "merge"] },
     examples: [
       { input: "merge_harvest_rows([1, 3, 5], [2, 4, 6])", output: "[1, 2, 3, 4, 5, 6]" },
       { input: "merge_harvest_rows([1, 2, 3], [4, 5, 6])", output: "[1, 2, 3, 4, 5, 6]" },
@@ -25327,7 +25330,8 @@ var EXERCISES = [
 `,
     story: [
       "Bob's weather vane is a ring painted with numbered markers. Last night's gust spun it k clicks to the right: the last k markers swung around to the front, keeping their order.",
-      "Given the markers as Bob recorded them before the gust and the number of clicks k, return how the ring reads now. The gust can be stronger than the ring is long — spinning a 3-marker ring by 3 clicks just brings it home."
+      "Given the markers as Bob recorded them before the gust and the number of clicks k, return how the ring reads now. The gust can be stronger than the ring is long — spinning a 3-marker ring by 3 clicks just brings it home.",
+      "One more thing: Bob's robot helper is watching, and it will REFUSE to grade any solution that uses deque.rotate(). Bob says the wrapping is the whole puzzle — let the modulo do the talking."
     ],
     signature: "def weather_vane_spin(markers: list[int], k: int) -> list[int]:",
     rules: [
@@ -25335,8 +25339,10 @@ var EXERCISES = [
       "The last k elements move to the front, keeping their order",
       "k can be larger than the list length (it wraps around)",
       "k can be 0 (nothing moves)",
-      "Handle empty rings"
+      "Handle empty rings",
+      "FORBIDDEN: using deque.rotate() — the robot checks and rejects it"
     ],
+    banned: { attrs: ["rotate"] },
     examples: [
       { input: "weather_vane_spin([1, 2, 3, 4, 5], 2)", output: "[4, 5, 1, 2, 3]" },
       { input: "weather_vane_spin([1, 2, 3], 1)", output: "[3, 1, 2]" },
