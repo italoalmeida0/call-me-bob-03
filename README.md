@@ -29,25 +29,28 @@ after) solving it.
 | 3 | The Owl Post Code | Convert a number between bases 2–36, with validation | Base Conversion, Math |
 | 3 | Staircase Digits | Count adjacent digit pairs where the second is the first + 1 | String Scanning, Counting |
 | 4 | Grandma's Letter Stew | Anagram check ignoring case and spaces | Anagram, Frequency Counting |
-| 4 | Merging the Harvest Rows | Merge two sorted lists into one sorted list | Merge Sorted Arrays, Two Pointers |
+| 4 | Merging the Harvest Rows | Merge two sorted lists into one sorted list — **without** `sorted()`, `.sort()` or `heapq.merge()` | Merge Sorted Arrays, Two Pointers |
 | 4 | The Scrabble Rack Swap | Check if one string is a permutation of the other | Permutation Check, Frequency Counting |
 | 5 | Zigzag Fence Painting | Alternate letter case; spaces restart the rhythm | String Manipulation, Case Handling |
-| 5 | The Weather Vane Spin | Rotate a list right by k positions (k may exceed the length) | Array Rotation, Modulo Arithmetic |
+| 5 | The Weather Vane Spin | Rotate a list right by k positions (k may exceed the length) — **without** `deque.rotate()` | Array Rotation, Modulo Arithmetic |
 | 6 | Whispers for the Scarecrow | Caesar cipher with wrap-around and negative shifts | Caesar Cipher, ASCII Math |
 
 ## How it works
 
 - 📝 **14 chores** across 6 days of Bob's week, each with a story-driven subject
-- 🐍 **Python editor** powered by CodeMirror 6 (syntax highlighting, indent guides)
+- 🐍 **Python editor** powered by CodeMirror 6 (syntax highlighting, indent guides,
+  4-space indent matching [Black](https://github.com/psf/black))
 - 🤖 **In-browser grading** — tests run locally via [Pyodide](https://pyodide.org)
   (WebAssembly CPython), nothing ever leaves your machine
-- 🔍 **Full test trace** — every test case shows the call, expected value, your
-  result and OK/KO, just like a terminal grader
+- 🔍 **Full test trace** — every test case shows `[OK]`/`[KO]` up front, then the
+  call, the expected value and your result on aligned lines with horizontal
+  scroll — just like a terminal grader
 - ▶️ **Run button** — run your script anytime and see `print()` output in the
   robot log, with a 15s infinite-loop guard
-- 🚫 **Enforced rules** — chores that ban a function (like `sorted()` in The
-  Seed Packet Sort) check your code statically AND at runtime, no sneaky
-  workarounds
+- 🚫 **Enforced rules** — chores that ban a function (`sorted()` in The Seed
+  Packet Sort, `heapq.merge()` in Merging the Harvest Rows, `deque.rotate()`
+  in The Weather Vane Spin) check your code statically AND at runtime, no
+  sneaky workarounds
 - ⭐ **Progress tracking** — solved chores and your code are saved in
   `localStorage`
 - 📱 **Responsive** — works on desktop and mobile
